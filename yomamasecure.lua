@@ -100,18 +100,18 @@ local yomama = {
 		local Output = ""
 		for i,v in next, data.split("") do 
 			if Characters[v] then 
-				Output = Output.."."..Characters[v] 
+				Output = Output..">"..Characters[v] 
 			elseif v == [[\]] then 
-				Output = Output.."."..Characters["backslash"]
+				Output = Output..">"..Characters["backslash"]
 			elseif v == [[`]] then 
-				Output = Output.."."..Characters["grave"]
+				Output = Output..">"..Characters["grave"]
 			end
 		end
 		return Output
 	end,
 	Decode = function(data)
 		local Output = ""
-		for i,v in next, data.split(".") do 
+		for i,v in next, data.split(">") do 
 			for k,x in next, Characters do 
 				if x == v then 
 					if k ~= "backslash" and k ~= "grave" then
