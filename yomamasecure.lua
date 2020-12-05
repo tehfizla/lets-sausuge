@@ -98,7 +98,7 @@ local Characters = {
 local yomama = {
 	Encode = function(data)
 		local Output = ""
-		for i,v in next, data:split("") do 
+		for i,v in next, data.split("") do 
 			if Characters[v] then 
 				Output = Output.."."..Characters[v] 
 			elseif v == [[\]] then 
@@ -111,7 +111,7 @@ local yomama = {
 	end,
 	Decode = function(data)
 		local Output = ""
-		for i,v in next, data:split(".") do 
+		for i,v in next, data.split(".") do 
 			for k,x in next, Characters do 
 				if x == v then 
 					if k ~= "backslash" and k ~= "grave" then
